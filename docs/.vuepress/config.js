@@ -20,6 +20,10 @@ module.exports = {
           {
             text: 'vue组件',
             link: '/vue/component/'
+          },
+          {
+            text: 'vue-cli3',
+            link: '/vue/cli3/'
           }
         ]
       },
@@ -53,14 +57,17 @@ module.exports = {
           ]
         }
       ],
+      '/vue/cli3/': ['', 'config'],
       '/web-base/': [
         'design-schema/',
         {
           title: 'js常用技巧',
           collapsable: true,
+
           children: ['regular-skill/']
         },
-        'markdown/'
+        'markdown/',
+        'nodeJs/'
       ]
       // '/web-base/': {
       //   title: '设计模式',
