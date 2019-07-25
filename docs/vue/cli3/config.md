@@ -1,4 +1,4 @@
-# 配置
+# vue-cli3配置
 
 ## vue.config.js 配置
 

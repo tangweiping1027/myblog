@@ -3,7 +3,10 @@ module.exports = {
   description: '我的个人网站',
   head: [
     // 注入到当前页面的 HTML <head> 中的标签
-    ['link', { rel: 'icon', href: '/logo.jpg' }] // 增加一个自定义的 favicon(网页标签的图标)
+    ['link', {
+      rel: 'icon',
+      href: '/logo.jpg'
+    }] // 增加一个自定义的 favicon(网页标签的图标)
   ],
   base: '/', // 这是部署到github相关的配置
   markdown: {
@@ -12,51 +15,54 @@ module.exports = {
   themeConfig: {
     nav: [
       // 导航栏配置
-      { text: '首页', link: '/' },
-      { text: '前端基础', link: '/web-base/' },
+      {
+        text: '首页',
+        link: '/'
+      },
+      {
+        text: '前端基础',
+        link: '/web-base/'
+      },
       {
         text: 'vue详情',
-        items: [
-          {
+        items: [{
             text: 'vue组件',
             link: '/vue/component/'
           },
           {
             text: 'vue-cli3',
             link: '/vue/cli3/'
+          },
+          {
+            text: 'vue的个人总结',
+            link: '/vue/summary/'
           }
         ]
       },
-      { text: '微博', link: 'https://baidu.com' }
+      {
+        text: '微博',
+        link: 'https://baidu.com'
+      }
     ],
     sidebar: {
       collapsable: true,
-      '/vue/component/': [
-        {
-          title: '组件1',
-          children: [
-            {
-              title: '二级',
-              children: [
-                {
-                  title: '三级',
-                  children: [
-                    {
-                      title: '四级',
-                      children: [
-                        {
-                          title: '五级',
-                          children: ['', 'one', 'two']
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      '/vue/component/': [{
+        title: '组件1',
+        children: [{
+          title: '二级',
+          children: [{
+            title: '三级',
+            children: [{
+              title: '四级',
+              children: [{
+                title: '五级',
+                children: ['', 'one', 'two']
+              }]
+            }]
+          }]
+        }]
+      }],
+      '/vue/summary/': [''],
       '/vue/cli3/': ['', 'config'],
       '/web-base/': [
         'design-schema/',
@@ -64,10 +70,11 @@ module.exports = {
           title: 'js常用技巧',
           collapsable: true,
 
-          children: ['regular-skill/']
+          children: ['regular-skill/', 'regular-skill/regular']
         },
         'markdown/',
-        'nodeJs/'
+        'nodeJs/',
+        'norm/'
       ]
       // '/web-base/': {
       //   title: '设计模式',

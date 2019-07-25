@@ -14,7 +14,7 @@ var BrowserInfo = {
 }
 ```
 
-**字符串长度**
+## 字符串长度
 
 ```js
 /* 返回字符串长度，汉子计数为2  */
@@ -29,7 +29,7 @@ function strLength(str) {
 }
 ```
 
-**获取 url 中的参数**
+## 获取url中的参数
 
 ```js
 function GetQueryStringRegExp(name, url) {
@@ -39,7 +39,7 @@ function GetQueryStringRegExp(name, url) {
 }
 ```
 
-**js 绑定事件**
+## js绑定事件
 
 ```js
 /*适用于任何浏览器的元素绑定  */
@@ -55,7 +55,7 @@ function eventBind(obj, eventType, callBack) {
 eventBind(document, 'click', bodyClick)
 ```
 
-**获得当前浏览器 JS 的版本**
+## 获得当前浏览器JS的版本
 
 ```js
 function getjsversion() {
@@ -108,7 +108,7 @@ function getjsversion() {
 }
 ```
 
-**获取当前点击事件的 Object 对象**
+## 获取当前点击事件的Object对象
 
 ```js
 function getEvent() {
@@ -133,7 +133,7 @@ function getEvent() {
 }
 ```
 
-**字符串截取方法**
+## 字符串截取方法
 
 ```js
 getCharactersLen: function (charStr, cutCount) {
@@ -159,7 +159,7 @@ getCharactersLen: function (charStr, cutCount) {
 }
 ```
 
-**JS 弹出新窗口全屏**
+## JS弹出新窗口全屏
 
 ```js
 var tmp = window.open('about:blank', '', 'fullscreen=1')
@@ -190,7 +190,7 @@ document.body.appendChild(f)
 f.submit()
 ```
 
-**js 判断浏览器**
+## js判断浏览器
 
 ```js
 // 判断是否是 IE 浏览器
@@ -220,7 +220,7 @@ if (isIE){
 }
 ```
 
-**判断浏览器**
+## 判断浏览器
 
 ```js
 function getOs() {
@@ -241,7 +241,7 @@ function getOs() {
 }
 ```
 
-**移除事件**
+## 移除事件
 
 ```js
 this.moveBind = function(objId, eventType, callBack) {
@@ -256,7 +256,7 @@ this.moveBind = function(objId, eventType, callBack) {
 }
 ```
 
-**回车提交**
+## 回车提交
 
 ```js
 $('id').onkeypress = function(event) {
@@ -272,7 +272,7 @@ $('id').onkeypress = function(event) {
 }
 ```
 
-**JS 执行计时器**
+## JS执行计时器
 
 ```js
 timeStart = new Date().getTime()
@@ -280,7 +280,7 @@ timesEnd = new Date().getTime()
 document.getElementById('time').innerHTML = timesEnd - timeStart
 ```
 
-**获取当前时间**
+## 获取当前时间
 
 ```js
 function GetCurrentDate() {
@@ -300,7 +300,7 @@ function add_zero(temp) {
 }
 ```
 
-**Js 去掉空格方法**
+## Js去掉空格方法
 
 ```js
 String.prototype.Trim = function() {
@@ -312,4 +312,34 @@ String.prototype.LTrim = function() {
 String.prototype.RTrim = function() {
   return this.replace(/(\s*$)/g, '')
 }
+```
+
+## js获取URL中的参数及值
+
+```js
+function query(sHref = window.location.href){
+    var obj = {};
+    var args = sHref.split('?');
+    if(args[0] == sHref) return obj;
+    var arr = args[1].split('&');
+    for(var i = 0;i< arr.length;i++){
+        var arg = arr[i].split('=');
+        obj[arg[0]] = arg[1];
+    }
+    return obj;
+}
+```
+
+倘若你当前的地址是：http://zhangpeiyue.com/s?a=1&b=2
+
+```js
+var result = query();
+console.log(result);// { a: '1', b: '2' }
+```
+
+当然你也可以指定地址：
+
+```js
+var result = query("http://zhangpeiyue.com/s?c=3&d=4");
+console.log(result);// { c: '3', d: '4' }
 ```

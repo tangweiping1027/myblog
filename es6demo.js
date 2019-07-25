@@ -14,14 +14,14 @@ class Person {
 }
 class Student extends Person {
   constructor(name, age) {
-    super(); //代表父类的构造函数
+    super();
     this.age = age;
   }
   height() {
-    super.height(); //指向父类的原型对象
+    super.height();
   }
   static weight() {
-    super.weight(); //指向父类
+    super.weight();
     console.log(super.age);
   }
   static age = 44444;
