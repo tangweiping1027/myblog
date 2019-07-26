@@ -7,6 +7,9 @@ import "../es6demo";
 import inject from "./plugins/inject";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import message from "./views/message";
+
+Vue.prototype.$msg = message;
 
 window.GLOBAL.vbus = new Vue();
 

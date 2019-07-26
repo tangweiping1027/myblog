@@ -1,5 +1,7 @@
 <template>
-  <div class="login">登录</div>
+  <div class="login">
+    <el-button @click="handle">点击</el-button>
+  </div>
 </template>
 
 <script>
@@ -21,6 +23,16 @@ export default {
       .then(({ rows = {} }) => {
         storage.set("token", rows.token);
       });
+  },
+  mounted() {
+    // this.aaaa();
+  },
+  methods: {
+    handle() {
+      this.$msg({
+        type: "success"
+      });
+    }
   }
 };
 </script>
