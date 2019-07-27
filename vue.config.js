@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  baseUrl: "/",
+  publicPath: "/",
   outputDir: "dist",
   lintOnSave: false,
   chainWebpack: config => {

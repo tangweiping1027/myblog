@@ -8,6 +8,8 @@ import inject from "./plugins/inject";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import message from "./views/message";
+// animate动画库
+import "animate.css/animate.min.css";
 
 Vue.prototype.$msg = message;
 

@@ -1,8 +1,12 @@
 <template>
-  <transition name="message-fade">
-    <div class="message" v-show="show">
+  <transition
+    enter-active-class="animated bounce"
+    leave-active-class="animated bounce"
+    @after-leave="$emit('afterLeave')"
+  >
+    <div class="message" :style="styles" v-show="visible">
       <p>{{ message }}</p>
-      <p>{{ msg }}</p>
+      <el-button type="primary" @click="handleClick">点击</el-button>
     </div>
   </transition>
 </template>
@@ -10,31 +14,40 @@
 <script>
 export default {
   name: "v-message",
-  props: ["message"],
-  mounted() {
-    this.StartTime();
+  props: {
+    styles: {
+      type: Object,
+      default: () => {}
+    },
+    message: {
+      type: String,
+      default: ""
+    }
   },
+  mounted() {},
   data() {
     return {
-      show: false,
-      timer: null,
-      msg: "123"
+      visible: false,
+      msg: "123",
+      form: {
+        bbb: 454
+      }
     };
+  },
+  watch: {
+    visible(val) {
+      console.log(val);
+    }
   },
   created() {
     console.log("这是原生的");
   },
   methods: {
-    StartTime() {
-      console.log(111111111);
-      this.show = true;
-      if (this.timer) {
-        window.clearTimeOut(this.timer);
-      } else {
-        this.timer = setTimeout(() => {
-          this.show = false;
-        }, 3000);
-      }
+    handleClick() {
+      this.visible = false;
+    },
+    edit(params) {
+      console.log(params);
     }
   }
 };

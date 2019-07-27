@@ -2,9 +2,10 @@ class Person {
   constructor(name) {
     this.name = name;
     this.age = 23423;
+    this.aaa = 12345678;
   }
   height() {
-    console.log(1);
+    console.log(this.aaa);
   }
   static weight() {
     console.log(2);
@@ -28,5 +29,5 @@ class Student extends Person {
 }
 
 let student = new Student("fdsa", 1111);
-Student.weight();
+// Student.weight();
 student.height();

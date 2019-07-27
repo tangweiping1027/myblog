@@ -30,7 +30,23 @@ export default {
   methods: {
     handle() {
       this.$msg({
-        type: "success"
+        message: "sdfadsfdasf",
+        on: {
+          click: () => {
+            console.log("click");
+          }
+        },
+        childFn: [
+          {
+            name: "edit",
+            params: {
+              aaa: "123455"
+            }
+          }
+        ],
+        getForm(form) {
+          console.log(form);
+        }
       });
     }
   }
