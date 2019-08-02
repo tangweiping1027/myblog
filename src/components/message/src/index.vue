@@ -13,15 +13,15 @@
 
 <script>
 export default {
-  name: "v-message",
+  name: "v-msg",
   props: {
-    styles: {
-      type: Object,
-      default: () => {}
-    },
     message: {
       type: String,
       default: ""
+    },
+    styles: {
+      type: Object,
+      default: () => {}
     }
   },
   mounted() {},
@@ -34,6 +34,7 @@ export default {
       }
     };
   },
+  computed: {},
   watch: {
     visible(val) {
       console.log(val);

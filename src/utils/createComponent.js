@@ -1,9 +1,10 @@
+import Vue from "vue";
 export default class CreateComponent {
   constructor() {
     this.instances = [];
     this.id = 1;
   }
-  removeItem(instance, type) {
+  removeItem(instance) {
     if (!instance) {
       return;
     }
@@ -13,21 +14,15 @@ export default class CreateComponent {
     }
     this.instances.splice(index, 1);
     instance.visible = false;
-    if (type == "animate") {
-      instance.$on("afterLeave", () => {
-        document.body.removeChild(instance.$el);
-        instance.$destroy();
-      });
-      return;
-    }
-    document.body.removeChild(instance.$el);
-    instance.$destroy();
+    return Promise.resolve(instance);
   }
-  createInstance(options, Creator) {
+  createInstance(options, creatorOptions) {
     //生成组件
+    let Creator = Vue.extend(creatorOptions);
     let { on, childFn, ...rest } = options;
     let instance = new Creator({
-      propsData: {
+      propsData: {},
+      data: {
         ...rest
       }
     });
@@ -37,7 +32,6 @@ export default class CreateComponent {
 
     document.body.appendChild(instance.vm.$el);
     instance.vm.visible = true;
-
     // 调用组件的方法
     if (childFn && Array.isArray(childFn)) {
       childFn.forEach(item => {

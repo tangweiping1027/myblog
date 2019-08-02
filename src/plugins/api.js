@@ -42,7 +42,7 @@ class MakeApi {
     // eslint-disable-next-line
     mock = false,
     debug = false,
-    _CONST_PORT_CONFIG,
+    CONST_PORT_CONFIG,
     mockBaseURL = ""
   }) {
     config.forEach(api => {
@@ -82,7 +82,7 @@ class MakeApi {
           if (!isMock) {
             //如果不是mock接口
             const name = namespace.toUpperCase() + "_URL";
-            baseURL = _CONST_PORT_CONFIG[name];
+            baseURL = CONST_PORT_CONFIG[name];
           }
 
           const _options = {

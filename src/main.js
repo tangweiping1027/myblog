@@ -7,12 +7,12 @@ import "../es6demo";
 import inject from "./plugins/inject";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import message from "./views/message";
+import "./components/index.js";
 // animate动画库
 import "animate.css/animate.min.css";
+import myNpmUtils from "Utils/toolFunc.js";
 
-Vue.prototype.$msg = message;
-
+myNpmUtils(Vue);
 window.GLOBAL.vbus = new Vue();
 
 Vue.use(ElementUI);
