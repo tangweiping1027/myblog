@@ -8,7 +8,7 @@ class Message extends CreateComponent {
   }
   messageInstance(options, timeout) {
     if (options.styles == undefined) {
-      options.styles = {
+      options.style = {
         position: "absolute",
         bottom: "100px",
         right: 0

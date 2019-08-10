@@ -4,7 +4,7 @@
     leave-active-class="animated bounce"
     @after-leave="$emit('afterLeave')"
   >
-    <div class="message" :style="styles" v-show="visible">
+    <div class="message" :style="style" v-show="visible">
       <p>{{ message }}</p>
       <el-button type="primary" @click="handleClick">点击</el-button>
     </div>
@@ -18,10 +18,6 @@ export default {
     message: {
       type: String,
       default: ""
-    },
-    styles: {
-      type: Object,
-      default: () => {}
     }
   },
   mounted() {},

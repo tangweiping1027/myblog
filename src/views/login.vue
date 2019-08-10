@@ -1,80 +1,48 @@
 <template>
-  <div class="login">
-    <el-button @click="handle">点击</el-button>
+  <div>
+    {{ msg }}
+    <!-- <tinymce-editor
+      v-model="msg"
+      :disabled="disabled"
+      @onClick="onClick"
+      ref="editor"
+    ></tinymce-editor>-->
+    <button @click="clear">清空内容</button>
+    <button @click="disabled = true">禁用</button>
     <aaa></aaa>
   </div>
 </template>
 
 <script>
-import aaa from "./aaa";
-import storage from "Utils/storage";
-import Vue from "vue";
-let Aaa = Vue.extend({
-  extends: aaa
-});
-
+import "./aaa.js";
 export default {
-  components: { aaa },
   data() {
     return {
-      visible: false,
-      dialogVisible: false
+      msg: "Welcome to Use Tinymce Editor",
+      disabled: false
     };
   },
   created() {
-    if (storage.get("token")) {
-      return;
-    }
-    this.$ajax
-      .post("http://192.168.0.135:8081/login", {
-        captcha: "1",
-        password: "admin123!",
-        username: "admin"
-      })
-      .then(({ rows = {} }) => {
-        storage.set("token", rows.token);
-      });
-  },
-  mounted() {
-    // this.aaaa();
+    this.$msg({
+      style: {}
+    });
   },
   methods: {
-    handle() {
-      // this.$msg({
-      //   message: "sdfadsfdasf",
-      //   on: {
-      //     click: () => {
-      //       console.log("click");
-      //     }
-      //   },
-      //   childFn: [
-      //     {
-      //       name: "edit",
-      //       params: {
-      //         aaa: "123455"
-      //       }
-      //     }
-      //   ],
-      //   getForm(form) {
-      //     console.log(form);
-      //   }
-      // });
-      this._dialog({
-        visible: true,
-        title: "hello",
-        component: () => import("./aaa"),
-        width: "300px"
-      });
+    //鼠标单击的事件
+    onClick(e, editor) {
+      console.log("Element clicked");
+      console.log(e);
+      console.log(editor);
     },
-    destoryed() {
-      console.log("dfsda");
+    //清空内容
+    clear() {
+      this.$refs.editor.clear();
     }
+  },
+  components: {
+    aaa: () => import("./aaa.vue")
   }
 };
 </script>
 
-<style lang="scss">
-.login {
-  background: #fff;
-}
-</style>
+<style scoped></style>
